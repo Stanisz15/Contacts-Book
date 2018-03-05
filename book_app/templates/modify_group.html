@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify group</title>
+</head>
+<body>
+    <a href ="/groups/"><--back to groups list</a>
+    <form action="#" method="POST">
+        {% csrf_token %}
+            <label>
+                <h3>
+                    Name:
+                    <input type="text" name="name" value="{{groups.name}}">
+                </h3>
+            </label>
+                <label>
+                <p>
+               <input type="submit" value="Save">
+                </p>
+            </label>
+    </form>
+</body>
+</html>

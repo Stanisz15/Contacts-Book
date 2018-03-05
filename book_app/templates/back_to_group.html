@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Person details</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><b>Name: {{ person.first_name }}</b></td>
+        </tr>
+        <tr>
+            <td><b>Surname:</b> {{ person.last_name }}</td>
+        </tr>
+        <tr>
+            <td><b>Description:</b> {{ person.description}}</td>
+        </tr>
+        <tr>
+            <td><b>Addresses:</b>{% for address in person.address_set.all %}<br>
+                        {{ address.city }}, {{ address.street }} {{ address.house_num }}/{{ address.apartment_num}}
+                        {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Phones:</b>{% for phone in person.phone_set.all %}<br>
+                        {{ phone.number }} - {{ phone.type }}
+                        {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Emails:</b>{% for email in person.email_set.all %}<br>
+                        {{ email.mail }} - {{ email.type }}
+                        {% endfor %}
+            </td>
+        </tr>
+            <tr>
+                <td><b>Belong to groups:</b>{% for group in person.groups_set.all %}<br>
+                        {{ group.name }}
+                        {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td><a href ="/groups"><--back to list of group</a></td>
+        </tr>
+    </table>
+</body>
+</html>

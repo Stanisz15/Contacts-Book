@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All contacts</title>
+</head>
+<body>
+    <h3><a href ="/groups/">Move to groups</a></h3>
+    <h2><a href ="/new/">Add new contact</a></h2>
+    <h1>Contact list:</h1>
+    <h2>Search for person</h2>
+    <form action="#" method="GET">
+        {% csrf_token %}
+        <label>
+            Name:
+            <input type="text" name="first_name" value="{{filters.first_name}}">
+        </label>
+        <label>
+            Surname:
+            <input type="text" name="last_name" value="{{filters.last_name}}">
+        </label><br>
+        <label>
+            <p><input type="submit" value="Search"></p>
+        </label>
+    </form>
+    {% for person in persons %}
+    <h3>Name: <a href ="/show/{{person.id}}">{{person.last_name}} {{ person.first_name }}</a></h3>
+    <a href ="/modify/{{person.id}}/">edit</a>
+    <a href ="/delete/{{person.id}}/">delete</a>
+    {% endfor %}
+</body>
+</html>

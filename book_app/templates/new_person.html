@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add person</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label>
+            Name
+            <input type="text" name="first_name" value="{{person.first_name}}">
+        </label>
+        <label>
+            Surname
+            <input type="text" name="last_name" value="{{person.last_name}}">
+        </label>
+        <label>
+            Description
+            <input type="text" name="description" value="{{person.description}}">
+        </label>
+        <p><input type="submit" value="Zapisz"></p>
+    </form>
+</body>
+</html>

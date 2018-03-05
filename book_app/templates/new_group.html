@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add group</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <label>
+            Name
+            <input type="text" name="name" value="{{groups.name}}">
+        </label>
+
+        <p><input type="submit" value="Zapisz"></p>
+    </form>
+</body>
+</html>

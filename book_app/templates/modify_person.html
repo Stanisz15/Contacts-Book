@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify contact</title>
+</head>
+<body>
+    <a href ="/show/{{person.id}}/"><--back to contact information</a>
+    <form action="#" method="POST">
+        {% csrf_token %}
+            <label>
+                <h3>
+                    Name:
+                    <input type="text" name="first_name" value="{{person.first_name}}">
+                </h3>
+            </label>
+            <label>
+                <p>
+                    Surname:
+                    <input type="text" name="last_name" value="{{person.last_name}}">
+                </p>
+            </label>
+            <label>
+                <p>
+                    Description:
+                    <input type="text" name="description" value="{{person.description}}">
+                </p>
+            </label>
+            <label>
+                <p>
+               <input type="submit" value="Change basic information">
+                </p>
+            </label>
+            <label>
+                <p>
+                Addresses: <a href ="/modify/{{person.id}}/addAddress">add new</a>
+                        {% for address in person.address_set.all %}<br>
+                        {{ address.city }}, {{ address.street }} {{ address.house_num }} / {{ address.apartment_num}}
+                        <a href ="/modify/{{person.id}}/modifyAddress/{{address.id}}/">edit</a>
+                        <a href ="/delete/{{person.id}}/delAddress/{{address.id}}/">delete</a>
+                        {% endfor %}
+                </p>
+            </label>
+            <label>
+                <p>
+                Phones: <a href ="/modify/{{person.id}}/addPhone">add new</a>
+                        {% for phone in person.phone_set.all %}<br>
+                        {{ phone.number }} , {{ phone.type }}
+                        <a href ="/modify/{{person.id}}/modifyPhone/{{phone.id}}/">edit</a>
+                        <a href ="/delete/{{person.id}}/delPhone/{{phone.id}}/">delete</a>
+                        {% endfor %}
+                </p>
+            </label>
+             <label>
+                <p>
+                Emails: <a href ="/modify/{{person.id}}/addEmail">add new</a>
+                        {% for email in person.email_set.all %}<br>
+                        {{ email.mail }} , {{ email.type }}
+                        <a href ="/modify/{{person.id}}/modifyEmail/{{email.id}}/">edit</a>
+                        <a href ="/delete/{{person.id}}/delEmail/{{email.id}}/">delete</a>
+                        {% endfor %}
+                </p>
+            </label>
+             <label>
+                <p>
+                Belong to groups: <a href ="/modify/{{person.id}}/add_to_group">add to group</a>
+                        {% for group in person.groups_set.all %}<br>
+                        {{ group.name }}
+                        <a href ="/delete/{{person.id}}/del_from_group/{{group.id}}/">remove from group</a>
+                        {% endfor %}
+                </p>
+            </label>
+
+    </form>
+</body>
+</html>

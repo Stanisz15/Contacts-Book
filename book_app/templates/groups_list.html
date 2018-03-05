@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All groups</title>
+</head>
+<body>
+    <h3><a href ="/"><--back to contacts list</a></h3>
+    <h2><a href ="/new_group/">Add new group</a></h2>
+    <h1>Groups list:</h1>
+    {% for group in groups %}
+    <h3>Name: <a href ="/show_group/{{group.id}}/">{{group.name}}</a>
+              - <a href ="/modify_group/{{group.id}}/">edit</a>
+              - <a href ="/del_group/{{group.id}}/">delete group</a></h3>
+    <!--<a href ="/modify/{{person.id}}/">edit</a>-->
+    <!--<a href ="/delete/{{person.id}}/">delete</a>-->
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group details</title>
+</head>
+<body>
+    <a href ="/groups"><--back to list of groups</a>
+    <h1>Name: {{ groups.name}}</h1>
+    {% for person in groups.persons.all|dictsort:'last_name' %}
+    <a href ="/back_to_group/{{person.id}}">{{person.last_name }} {{ person.first_name }}</a><br>
+    {% endfor %}
+</body>
+</html>
